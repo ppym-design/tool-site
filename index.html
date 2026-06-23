@@ -1,293 +1,693 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>プレシャスパートナーズ業務ツール</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>プレシャスパートナーズツールサイト</title>
+
   <style>
+    :root {
+      --blue: #1d4ed8;
+      --blue-dark: #0f2f6b;
+      --blue-light: #eaf2ff;
+      --sky: #f5f9ff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbeafe;
+      --card: #ffffff;
+      --green: #16a34a;
+      --orange: #f97316;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
+      font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 45%, #f8fafc 100%);
+      line-height: 1.7;
     }
 
-    header {
-      background: linear-gradient(135deg, #0f172a, #1d4ed8);
-      color: white;
-      padding: 48px 20px;
-      text-align: center;
+    a {
+      color: inherit;
     }
 
-    header h1 {
-      font-size: 32px;
-      margin: 0 0 12px;
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 32%),
+        linear-gradient(135deg, #0f2f6b 0%, #1d4ed8 55%, #38bdf8 100%);
+      color: #fff;
+      padding: 56px 20px 44px;
     }
 
-    header p {
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .site-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 5vw, 48px);
+      letter-spacing: 0.03em;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      max-width: 780px;
       margin: 0;
       font-size: 16px;
-      opacity: 0.9;
+      opacity: 0.94;
     }
 
-    main {
-      max-width: 1100px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.18s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    }
+
+    .btn-outline {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .container {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 28px 20px 60px;
+      padding: 34px 20px 64px;
+    }
+
+    .notice {
+      margin-top: -58px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(219, 234, 254, 0.95);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 18px 48px rgba(30, 64, 175, 0.16);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .notice h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .notice p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quick-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      background: var(--blue-light);
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .step span {
+      display: block;
+      color: #475569;
+      font-size: 12px;
     }
 
     section {
-      margin-bottom: 36px;
+      margin-top: 40px;
     }
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 12px;
-      border-left: 6px solid #2563eb;
-      padding-left: 12px;
-    }
-
-    .lead {
-      color: #4b5563;
-      margin-bottom: 20px;
-    }
-
-    .start-box {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      margin-bottom: 20px;
-    }
-
-    .button-row {
+    .section-head {
       display: flex;
-      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.4;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--blue);
+      margin-right: 10px;
+      vertical-align: -4px;
+    }
+
+    .section-desc {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .diagnosis {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .diagnosis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 16px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .btn.secondary {
-      background: #e5e7eb;
-      color: #111827;
-    }
-
-    .diagnosis {
-      background: #eef2ff;
-      border: 1px solid #c7d2fe;
+    .choice {
+      border: 1px solid #dbeafe;
       border-radius: 16px;
-      padding: 24px;
-    }
-
-    .diagnosis-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .diagnosis-buttons button {
-      border: none;
-      background: white;
-      border-radius: 999px;
-      padding: 10px 14px;
+      background: #f8fbff;
+      padding: 16px;
+      text-align: left;
       cursor: pointer;
-      font-weight: bold;
-      color: #1e3a8a;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: 0.15s ease;
     }
 
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
+    .choice:hover {
+      border-color: #60a5fa;
+      background: #eff6ff;
+      transform: translateY(-1px);
     }
 
-    .tool-card {
-      background: white;
+    .choice strong {
+      display: block;
+      color: #0f2f6b;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .choice span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .result-box {
+      display: none;
+      margin-top: 18px;
       border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      padding: 16px;
+      color: #14532d;
+      font-weight: 700;
     }
 
-    .tool-card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    .tool-card p {
-      margin: 0 0 16px;
-      color: #4b5563;
-      line-height: 1.6;
-      font-size: 14px;
+    .card {
+      background: var(--card);
+      border: 1px solid #e5efff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+      transition: 0.18s ease;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .tool-card a {
-      color: #2563eb;
-      font-weight: bold;
-      text-decoration: none;
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(30, 64, 175, 0.12);
+      border-color: #bfdbfe;
     }
 
     .badge {
-      display: inline-block;
-      font-size: 12px;
-      background: #dcfce7;
-      color: #166534;
-      padding: 4px 8px;
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
       border-radius: 999px;
-      margin-bottom: 10px;
-      font-weight: bold;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
     }
 
-    footer {
+    .badge.green {
+      background: #ecfdf5;
+      color: #15803d;
+      border-color: #bbf7d0;
+    }
+
+    .badge.orange {
+      background: #fff7ed;
+      color: #c2410c;
+      border-color: #fed7aa;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #111827;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      color: #4b5563;
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .four-wheel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .wheel {
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid #dbeafe;
+      border-radius: 20px;
+      padding: 18px;
       text-align: center;
-      padding: 24px;
-      color: #6b7280;
-      font-size: 13px;
-      border-top: 1px solid #e5e7eb;
-      background: white;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 26px;
+    .wheel-number {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 10px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .wheel h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .wheel p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer {
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 24px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .notice {
+        grid-template-columns: 1fr;
       }
 
-      main {
-        padding: 20px 14px 48px;
+      .grid,
+      .diagnosis-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .four-wheel {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 42px 16px 76px;
+      }
+
+      .container {
+        padding: 26px 14px 52px;
+      }
+
+      .notice {
+        margin-top: -64px;
+        padding: 18px;
+      }
+
+      .quick-steps,
+      .grid,
+      .diagnosis-grid,
+      .four-wheel {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .tag {
+        margin-top: 8px;
       }
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <h1>プレシャスパートナーズ業務ツール</h1>
-    <p>必要売上の把握、業務判断、入力補助まで。実務で使うツールをまとめたポータルです。</p>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="site-label">Precious Partners Tool Site</div>
+      <h1>プレシャスパートナーズ<br>ツールサイト</h1>
+      <p>
+        経営判断・業務改善・経理実務をサポートするためのツール集です。
+        目的に合わせて、必要な試算や確認をすばやく行えます。
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#start">3分スタート</a>
+        <a class="btn btn-outline" href="#diagnosis">目的別に探す</a>
+        <a class="btn btn-outline" href="#tools">ツール一覧へ</a>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
 
-    <section>
-      <h2>まずはここから</h2>
-      <p class="lead">初めての方は、診断または3分スタートから始めてください。目的が決まっている場合は、下のツール一覧から直接選べます。</p>
+    <div class="notice" id="start">
+      <div>
+        <h2>まずはここから</h2>
+        <p>
+          初めて利用する場合は、下の流れで確認するとスムーズです。
+          数字を入力し、結果を確認し、次の打ち手を検討するための入口としてご利用ください。
+        </p>
+      </div>
 
-      <div class="start-box">
-        <h3>3分スタート</h3>
-        <p>考え方をつかむ → 数字で確かめる → 打ち手を検討する流れで、簡単に試算できます。</p>
-        <div class="button-row">
-          <a class="btn" href="#">変動PLを見る</a>
-          <a class="btn" href="#">売上換算を試す</a>
-          <a class="btn secondary" href="#">打ち手を検討する</a>
+      <div class="quick-steps">
+        <div class="step">
+          <strong>1. 現状確認</strong>
+          <span>売上・利益・固定費を確認</span>
+        </div>
+        <div class="step">
+          <strong>2. 必要売上</strong>
+          <span>支出や投資を売上換算</span>
+        </div>
+        <div class="step">
+          <strong>3. 打ち手検討</strong>
+          <span>値上げ・人件費・改善策を検討</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2>3分診断</h2>
+    <section id="diagnosis">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">3分診断</h2>
+          <p class="section-desc">目的を選ぶと、最初に使うべきツールの方向性を表示します。</p>
+        </div>
+        <span class="tag">目的別ナビゲーション</span>
+      </div>
+
       <div class="diagnosis">
-        <p>目的に近いものを選ぶと、使うべきツールの方向性を確認できます。</p>
-        <div class="diagnosis-buttons">
-          <button onclick="showResult('コスト判断には、売上換算ツールがおすすめです。')">コスト判断</button>
-          <button onclick="showResult('値上げ判断には、価格改定ツールがおすすめです。')">値上げ判断</button>
-          <button onclick="showResult('採用・配置には、人件費見える化ツールがおすすめです。')">採用・配置</button>
-          <button onclick="showResult('入力処理の合理化には、自動化効果試算ツールがおすすめです。')">入力処理の合理化</button>
-          <button onclick="showResult('資金繰りには、CCC計算ツールがおすすめです。')">資金繰り</button>
-          <button onclick="showResult('経理実務には、仕訳補助ツールがおすすめです。')">経理実務</button>
+        <div class="diagnosis-grid">
+          <button class="choice" onclick="showResult('コスト判断には「必要売上計算ツール」がおすすめです。支出額がどの程度の売上に相当するか確認できます。')">
+            <strong>コスト判断</strong>
+            <span>この支出は採算に合うか確認したい</span>
+          </button>
+
+          <button class="choice" onclick="showResult('値上げ判断には「価格改定検討ツール」がおすすめです。単価変更が利益に与える影響を確認できます。')">
+            <strong>値上げ判断</strong>
+            <span>価格改定の影響を見たい</span>
+          </button>
+
+          <button class="choice" onclick="showResult('採用・配置には「人件費見える化ツール」がおすすめです。人件費と必要売上の関係を確認できます。')">
+            <strong>採用・配置</strong>
+            <span>人を増やす前に採算を確認したい</span>
+          </button>
+
+          <button class="choice" onclick="showResult('入力処理の合理化には「自動化効果試算ツール」がおすすめです。削減時間を金額換算できます。')">
+            <strong>入力処理の合理化</strong>
+            <span>作業時間削減の効果を見たい</span>
+          </button>
+
+          <button class="choice" onclick="showResult('資金繰りには「CCC計算ツール」がおすすめです。資金が寝ている期間を確認できます。')">
+            <strong>資金繰り</strong>
+            <span>お金の回収・支払サイクルを確認したい</span>
+          </button>
+
+          <button class="choice" onclick="showResult('経理実務には「仕訳補助ツール」や「CSV変換ツール」がおすすめです。入力作業の効率化に使えます。')">
+            <strong>経理実務</strong>
+            <span>仕訳や入力作業を効率化したい</span>
+          </button>
         </div>
-        <p id="result" style="margin-top:18px; font-weight:bold;"></p>
+
+        <div id="result" class="result-box"></div>
       </div>
     </section>
 
     <section>
-      <h2>メインツール</h2>
-      <p class="lead">経営判断や業務改善に使う中心ツールです。</p>
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">経営改善4ステップ</h2>
+          <p class="section-desc">現状確認から改善策の検討まで、順番に確認できます。</p>
+        </div>
+        <span class="tag">おすすめの進め方</span>
+      </div>
 
-      <div class="tool-grid">
-        <div class="tool-card">
+      <div class="four-wheel">
+        <div class="wheel">
+          <div class="wheel-number">1</div>
+          <h3>変動PL</h3>
+          <p>売上・限界利益・固定費を確認</p>
+        </div>
+        <div class="wheel">
+          <div class="wheel-number">2</div>
+          <h3>売上換算</h3>
+          <p>支出を必要売上に置き換え</p>
+        </div>
+        <div class="wheel">
+          <div class="wheel-number">3</div>
+          <h3>打ち手</h3>
+          <p>値上げ・削減・改善を検討</p>
+        </div>
+        <div class="wheel">
+          <div class="wheel-number">4</div>
+          <h3>実行確認</h3>
+          <p>月次で結果を確認</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">メインツール</h2>
+          <p class="section-desc">経営判断や業務改善に使う中心ツールです。</p>
+        </div>
+        <span class="tag">Main Tools</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
           <span class="badge">PL</span>
           <h3>変動損益計算ツール</h3>
-          <p>売上高、限界利益、固定費の関係を確認し、損益分岐点を把握します。</p>
+          <p>売上高・限界利益率・固定費から、利益と損益分岐点を確認します。</p>
           <a href="#">開く →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="card">
           <span class="badge">売上換算</span>
           <h3>必要売上計算ツール</h3>
           <p>支出額を回収するために必要な売上高を、限界利益率から逆算します。</p>
           <a href="#">開く →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="card">
           <span class="badge">価格</span>
           <h3>価格改定検討ツール</h3>
-          <p>値上げや値下げが利益に与える影響を試算します。</p>
+          <p>値上げ・値下げが売上や利益に与える影響をシンプルに確認します。</p>
           <a href="#">開く →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="card">
           <span class="badge">人件費</span>
           <h3>人件費見える化ツール</h3>
-          <p>時間単価や作業時間から、人件費の影響を見える化します。</p>
+          <p>人件費や作業時間をもとに、採算や必要売上を確認します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="card">
+          <span class="badge green">自動化</span>
+          <h3>自動化効果試算ツール</h3>
+          <p>削減できる作業時間を金額換算し、改善効果を見える化します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="card">
+          <span class="badge orange">打ち手</span>
+          <h3>打ち手検討ツール</h3>
+          <p>売上アップ・コスト削減・業務改善の候補を整理します。</p>
           <a href="#">開く →</a>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>その他便利ツール</h2>
-      <p class="lead">日常業務や経理処理を補助するツールです。</p>
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">その他便利ツール</h2>
+          <p class="section-desc">経理・総務・日常業務を補助するツールです。</p>
+        </div>
+        <span class="tag">Utility Tools</span>
+      </div>
 
-      <div class="tool-grid">
-        <div class="tool-card">
+      <div class="grid">
+        <div class="card">
+          <span class="badge">資金繰り</span>
           <h3>CCC計算ツール</h3>
-          <p>売上債権、棚卸資産、仕入債務からキャッシュ化までの日数を確認します。</p>
+          <p>売上債権・棚卸資産・仕入債務から、資金化までの日数を確認します。</p>
           <a href="#">開く →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="card">
+          <span class="badge">仕訳</span>
           <h3>受取利息・配当金 仕訳補助</h3>
-          <p>手取額から源泉徴収税額を逆算し、仕訳作成を補助します。</p>
+          <p>手取額から税額を逆算し、仕訳作成を補助します。</p>
           <a href="#">開く →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="card">
+          <span class="badge">固定資産</span>
           <h3>減価償却費計算ツール</h3>
-          <p>定額法・定率法の償却費を簡易的に計算します。</p>
+          <p>取得価額・耐用年数などから、償却費を簡易計算します。</p>
           <a href="#">開く →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="card">
+          <span class="badge">CSV</span>
           <h3>CSV変換ツール</h3>
-          <p>会計ソフト取込用のCSV整形や変換を行う補助ツールです。</p>
+          <p>会計ソフト取込用のCSV整形やデータ変換を補助します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="card">
+          <span class="badge">PDF</span>
+          <h3>PDF整理ツール</h3>
+          <p>PDFの結合・分割・整理など、資料管理を補助します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="card">
+          <span class="badge">総務</span>
+          <h3>役員任期計算ツール</h3>
+          <p>就任日や定款の任期をもとに、任期満了時期を確認します。</p>
           <a href="#">開く →</a>
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer>
-    © 2026 プレシャスパートナーズ業務ツール
+  <footer class="footer">
+    © 2026 Precious Partners Tool Site
   </footer>
 
   <script>
     function showResult(message) {
-      document.getElementById("result").textContent = message;
+      const box = document.getElementById("result");
+      box.textContent = message;
+      box.style.display = "block";
     }
   </script>
-
 </body>
 </html>
