@@ -2,17 +2,292 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>業務ポータルツール</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プレシャスパートナーズ業務ツール</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin: 0 0 12px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      border-left: 6px solid #2563eb;
+      padding-left: 12px;
+    }
+
+    .lead {
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+
+    .start-box {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .btn.secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .diagnosis {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .diagnosis-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .diagnosis-buttons button {
+      border: none;
+      background: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #1e3a8a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .tool-card p {
+      margin: 0 0 16px;
+      color: #4b5563;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .tool-card a {
+      color: #2563eb;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      background: #dcfce7;
+      color: #166534;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #6b7280;
+      font-size: 13px;
+      border-top: 1px solid #e5e7eb;
+      background: white;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 26px;
+      }
+
+      main {
+        padding: 20px 14px 48px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>業務ポータルツール</h1>
-  <p>業務で使うツールをまとめたポータルサイトです。</p>
 
-  <h2>ツール一覧</h2>
-  <ul>
-    <li>必要売上計算ツール</li>
-    <li>役員任期計算ツール</li>
-    <li>CSV変換ツール</li>
-  </ul>
+  <header>
+    <h1>プレシャスパートナーズ業務ツール</h1>
+    <p>必要売上の把握、業務判断、入力補助まで。実務で使うツールをまとめたポータルです。</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>まずはここから</h2>
+      <p class="lead">初めての方は、診断または3分スタートから始めてください。目的が決まっている場合は、下のツール一覧から直接選べます。</p>
+
+      <div class="start-box">
+        <h3>3分スタート</h3>
+        <p>考え方をつかむ → 数字で確かめる → 打ち手を検討する流れで、簡単に試算できます。</p>
+        <div class="button-row">
+          <a class="btn" href="#">変動PLを見る</a>
+          <a class="btn" href="#">売上換算を試す</a>
+          <a class="btn secondary" href="#">打ち手を検討する</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3分診断</h2>
+      <div class="diagnosis">
+        <p>目的に近いものを選ぶと、使うべきツールの方向性を確認できます。</p>
+        <div class="diagnosis-buttons">
+          <button onclick="showResult('コスト判断には、売上換算ツールがおすすめです。')">コスト判断</button>
+          <button onclick="showResult('値上げ判断には、価格改定ツールがおすすめです。')">値上げ判断</button>
+          <button onclick="showResult('採用・配置には、人件費見える化ツールがおすすめです。')">採用・配置</button>
+          <button onclick="showResult('入力処理の合理化には、自動化効果試算ツールがおすすめです。')">入力処理の合理化</button>
+          <button onclick="showResult('資金繰りには、CCC計算ツールがおすすめです。')">資金繰り</button>
+          <button onclick="showResult('経理実務には、仕訳補助ツールがおすすめです。')">経理実務</button>
+        </div>
+        <p id="result" style="margin-top:18px; font-weight:bold;"></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>メインツール</h2>
+      <p class="lead">経営判断や業務改善に使う中心ツールです。</p>
+
+      <div class="tool-grid">
+        <div class="tool-card">
+          <span class="badge">PL</span>
+          <h3>変動損益計算ツール</h3>
+          <p>売上高、限界利益、固定費の関係を確認し、損益分岐点を把握します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="badge">売上換算</span>
+          <h3>必要売上計算ツール</h3>
+          <p>支出額を回収するために必要な売上高を、限界利益率から逆算します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="badge">価格</span>
+          <h3>価格改定検討ツール</h3>
+          <p>値上げや値下げが利益に与える影響を試算します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="tool-card">
+          <span class="badge">人件費</span>
+          <h3>人件費見える化ツール</h3>
+          <p>時間単価や作業時間から、人件費の影響を見える化します。</p>
+          <a href="#">開く →</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>その他便利ツール</h2>
+      <p class="lead">日常業務や経理処理を補助するツールです。</p>
+
+      <div class="tool-grid">
+        <div class="tool-card">
+          <h3>CCC計算ツール</h3>
+          <p>売上債権、棚卸資産、仕入債務からキャッシュ化までの日数を確認します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>受取利息・配当金 仕訳補助</h3>
+          <p>手取額から源泉徴収税額を逆算し、仕訳作成を補助します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>減価償却費計算ツール</h3>
+          <p>定額法・定率法の償却費を簡易的に計算します。</p>
+          <a href="#">開く →</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>CSV変換ツール</h3>
+          <p>会計ソフト取込用のCSV整形や変換を行う補助ツールです。</p>
+          <a href="#">開く →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 プレシャスパートナーズ業務ツール
+  </footer>
+
+  <script>
+    function showResult(message) {
+      document.getElementById("result").textContent = message;
+    }
+  </script>
+
 </body>
 </html>
